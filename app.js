@@ -3,12 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('catAudio');
 
     button.addEventListener('click', () => {
-        // Reiniciar el audio si ya se estaba reproduciendo
-        audio.currentTime = 0;
-        audio.play().catch(error => {
-            console.error("Error al reproducir el audio:", error);
-            alert("Por favor, asegúrate de haber subido el archivo audio.mp3");
-        });
+        if (!audio.paused) {
+            // Si ya se está reproduciendo, lo detenemos
+            audio.pause();
+            audio.currentTime = 0;
+            button.classList.remove('playing');
+        } else {
+            // Si no se está reproduciendo, lo iniciamos
+            audio.play().then(() => {
+                button.classList.add('playing');
+            }).catch(error => {
+                console.error("Error al reproducir el audio:", error);
+                alert("Por favor, asegúrate de haber subido el archivo audio.mp3");
+            });
+        }
+    });
+
+    // Quitar la iluminación cuando el audio termine por sí solo
+    audio.addEventListener('ended', () => {
+        button.classList.remove('playing');
     });
 });
 
