@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.cat-button {
+    background: none;
+    border: 8px solid white;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.1s active, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.cat-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.instruction {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
